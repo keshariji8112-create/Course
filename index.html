@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ALL COURSES PREMIUM BUNDLE Masterclass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-alt: #f1f5f9;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-dim: #64748b;
+    --primary: #00d9ff;
+    --primary-dark: #00b8e6;
+    --primary-tint: #e0faff;
+    --accent: #00d9ff;
+    --accent-tint: #e0faff;
+    --neon-glow: 0 0 12px rgba(0,217,255,0.55), 0 0 30px rgba(0,217,255,0.25);
+    --amber: #f59e0b;
+    --amber-tint: #fffbeb;
+    --danger: #ef4444;
+    --danger-tint: #fef2f2;
+    --shadow-sm: 0 1px 3px rgba(15,23,42,0.08);
+    --shadow-md: 0 8px 24px -4px rgba(15,23,42,0.08);
+    --shadow-lg: 0 20px 30px -10px rgba(15,23,42,0.12);
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    padding-bottom: 90px;
+  }
+  h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 18px; }
+
+  /* Header */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(8px);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--text); }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint); }
+  .admin-btn { background: none; border: none; font-size: 12px; font-weight: 600; color: var(--text-dim); cursor: pointer; }
+
+  /* Hero Section */
+  .hero { padding: 20px 0 12px; }
+  .badge-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .badge {
+    background: var(--amber-tint);
+    color: var(--amber);
+    border: 1px solid #fef3c7;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: .3px;
+  }
+  .badge.hot { background: var(--danger-tint); color: var(--danger); border-color: #fecdd3; }
+
+  /* Refer & Earn Banner */
+  .refer-banner {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1px solid rgba(0,217,255,0.35);
+    box-shadow: var(--neon-glow);
+    color: #fff;
+    padding: 12px 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    cursor: pointer;
+  }
+  .refer-banner b { color: var(--primary); }
+  .refer-arrow { font-size: 16px; color: var(--primary); flex-shrink: 0; }
+
+  .earn-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+  .earn-stat-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+  .earn-stat-card .num { font-size: 20px; font-weight: 800; color: var(--primary-dark); }
+  .earn-stat-card .lbl { font-size: 11px; color: var(--text-dim); font-weight: 600; margin-top: 2px; }
+
+  .refer-link-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 6px;
+  }
+  .refer-link-box span { font-size: 11.5px; word-break: break-all; color: var(--text); }
+
+  .tab-row { display: flex; gap: 8px; margin-bottom: 14px; }
+  .tab-btn {
+    flex: 1;
+    padding: 9px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-alt);
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    cursor: pointer;
+  }
+  .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  .course-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow-md);
+  }
+  .course-title { font-size: 22px; font-weight: 800; line-height: 1.35; margin-bottom: 8px; }
+  .rating-row { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-dim); margin-bottom: 16px; }
+  .stars { color: #f59e0b; font-weight: 700; }
+
+  .course-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface-alt);
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  .course-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Timer */
+  .timer-box {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .timer-title { font-size: 12px; font-weight: 600; color: #94a3b8; }
+  .timer-clock { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; color: #f59e0b; }
+
+  /* Price & Buy */
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; }
+  .price { font-size: 32px; font-weight: 800; color: var(--text); }
+  .price-strike { color: var(--text-dim); text-decoration: line-through; font-size: 16px; }
+  .price-discount { background: var(--accent-tint); color: var(--accent); font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+
+  .buy-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .buy-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .buy-btn:active { transform: translateY(0); }
+  .buy-btn { box-shadow: var(--neon-glow); }
+
+  .brand .dot { box-shadow: 0 0 0 3px var(--accent-tint), var(--neon-glow); }
+  .track-link { text-shadow: 0 0 8px rgba(0,217,255,0.35); }
+  .timer-clock { text-shadow: 0 0 10px rgba(245,158,11,0.4); }
+
+  .track-link {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: var(--primary);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+  }
+
+  /* Highlights Section */
+  .sec-title { font-size: 18px; font-weight: 800; margin: 24px 0 14px; }
+  .highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .h-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .h-card .icon { font-size: 18px; }
+
+  /* Modules / Curriculum */
+  .curriculum-list { display: flex; flex-direction: column; gap: 8px; }
+  .module-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .module-card span { color: var(--text-dim); font-size: 12px; }
+
+  /* Testimonials */
+  .reviews { display: flex; flex-direction: column; gap: 12px; }
+  .review-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+  .review-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .review-author { font-weight: 700; color: var(--text); }
+
+  /* Trust Footer */
+  .trust-strip {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Sticky Bottom Bar for Mobile */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    padding: 10px 18px calc(10px + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 30;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  }
+  .sticky-price { font-size: 20px; font-weight: 800; color: var(--text); }
+  .sticky-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* Modals */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.5);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 100;
+  }
+  .overlay.active { display: flex; }
+  .modal {
+    width: 100%;
+    max-width: 640px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-radius: 24px 24px 0 0;
+    padding: 22px 20px calc(28px + env(safe-area-inset-bottom));
+    animation: slideUp .25s ease;
+    position: relative;
+  }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+  .close-x {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+  .modal-sub { color: var(--text-dim); font-size: 13.5px; margin-bottom: 18px; }
+
+  /* Payment Modal Items */
+  .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .pay-app {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+  .pay-app:hover { border-color: var(--primary); background: var(--primary-tint); }
+  .pay-app .icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 12px;
+  }
+  .icon.gpay { background: #4285F4; }
+  .icon.phonepe { background: #5f259f; }
+  .icon.paytm { background: #00baf2; }
+  .icon.upi { background: #334155; }
+
+  .qr-box { text-align: center; background: var(--surface-alt); padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border); }
+  .qr-box img { width: 160px; height: 160px; border-radius: 8px; border: 1px solid var(--border); background: #fff; padding: 6px; }
+
+  .upi-id-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+  }
+  .copy-btn { background: var(--primary); color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+  /* Forms */
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-dim); margin-bottom: 6px; }
+  .field input {
+    width: 100%;
+    padding: 12px;
+    background: var(--surface-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .field input:focus { outline: none; border-color: var(--primary); background: #fff; }
+
+  .upload-box {
+    border: 1.5px dashed var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: var(--surface-alt);
+    cursor: pointer;
+    position: relative;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .upload-box img { width: 100%; max-height: 200px; object-fit: contain; border-radius: 8px; display: none; margin-top: 8px; }
+  .upload-box input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  /* Admin Dashboard Modal */
+  .admin-panel { display: none; }
+  .admin-panel.active { display: block; }
+  .order-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+  .order-card img { width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px; margin: 10px 0; background: #000; }
+  .status-pill { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+  .status-pill.pending { background: var(--amber-tint); color: var(--amber); }
+  .status-pill.verified { background: var(--accent-tint); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="wrap header-inner">
+    <div class="brand"><span class="dot"></span> DEVACADEMY</div>
+    <button class="admin-btn" id="openAdminBtn">Admin Login</button>
+  </div>
+</header>
+
+<!-- Main Storefront -->
+<div class="wrap hero">
+  <div class="badge-bar">
+    <span class="badge hot">🔥 Live Discount Offer</span>
+    <span class="badge">Hindi Course</span>
+    <span class="badge">Certificate Included</span>
+  </div>
+
+  <div class="refer-banner" id="openReferBtn">
+    <div>🎁 <b>Refer & Earn</b> — Kisi ko refer karein, unka course purchase hote hi <b>40% commission</b> paayein!</div>
+    <span class="refer-arrow">→</span>
+  </div>
+
+  <div class="course-card">
+    <h1 class="course-title" id="courseTitle">All Courses Premium Bundle — Hindi + English (Zero to Hero)</h1>
+    <div class="rating-row">
+      <span class="stars">★ 4.9</span>
+      <span>(1,480+ Students Enrolled)</span>
+    </div>
+
+    <div class="course-img-wrap">
+      <img id="courseImg" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80" alt="Course Thumbnail">
+    </div>
+
+    <div class="timer-box">
+      <div class="timer-title">⚡ Discount Ends In:</div>
+      <div class="timer-clock" id="timer">14m 59s</div>
+    </div>
+
+    <div class="price-row">
+      <span class="price" id="coursePrice">₹1</span>
+      <span class="price-strike" id="courseStrike">₹2,499</span>
+      <span class="price-discount">80% OFF</span>
+    </div>
+
+    <button class="buy-btn" id="buyNowBtn">Enroll Now for ₹1</button>
+    <button class="track-link" id="trackOrderBtn">Payment ho gaya? Order Status Check karein →</button>
+  </div>
+
+  <!-- What You Will Learn -->
+  <h2 class="sec-title">Aap Kya Sikhenge:</h2>
+  <div class="highlights-grid">
+    <div class="h-card"><span class="icon">📈</span> Instagram Growth</div>
+    <div class="h-card"><span class="icon">▶️</span> YouTube Automation</div>
+    <div class="h-card"><span class="icon">🎵</span> TikTok Growth</div>
+    <div class="h-card"><span class="icon">📘</span> Facebook Growth</div>
+    <div class="h-card"><span class="icon">🤖</span> Artificial Intelligence</div>
+    <div class="h-card"><span class="icon">🐍</span> Python Programming</div>
+    <div class="h-card"><span class="icon">➕</span> C++ Programming</div>
+    <div class="h-card"><span class="icon">☕</span> Java Programming</div>
+    <div class="h-card"><span class="icon">💻</span> Web Development (HTML/CSS/JS)</div>
+    <div class="h-card"><span class="icon">📊</span> Data Analytics</div>
+    <div class="h-card"><span class="icon">🎨</span> Premium Bundle Templates</div>
+    <div class="h-card"><span class="icon">🖼️</span> Premium Bundle Images/Assets</div>
+    <div class="h-card"><span class="icon">🛡️</span> Ethical Hacking Basics</div>
+    <div class="h-card"><span class="icon">📜</span> Completion Certificate</div>
+  </div>
+
+  <!-- Curriculum Accordion -->
+  <h2 class="sec-title">Course Modules (Syllabus):</h2>
+  <div class="curriculum-list">
+    <div class="module-card">Module 1: Artificial Intelligence — Basics to Advanced</div>
+    <div class="module-card">Module 2: YouTube Automation (Faceless Channel Setup)</div>
+    <div class="module-card">Module 3: TikTok Growth Strategy</div>
+    <div class="module-card">Module 4: Facebook Growth & Page Monetization</div>
+    <div class="module-card">Module 5: Instagram Growth & Reels Strategy</div>
+    <div class="module-card">Module 6: Premium Bundle Templates (Design Kits)</div>
+    <div class="module-card">Module 7: Premium Bundle Images & Assets Pack</div>
+    <div class="module-card">Module 8: All Premium Courses Overview (Python, C++, Java, Web Dev)</div>
+    <div class="module-card">Module 9: Data Analytics — Zero to Job Ready</div>
+  </div>
+
+  <!-- Testimonials -->
+  <h2 class="sec-title">Student Reviews:</h2>
+  <div class="reviews">
+    <div class="review-card">
+      <div class="review-head">
+        <span class="review-author">Rahul Verma</span>
+        <span class="stars">★★★★★</span>
+      </div>
+      "Bhai itna badiya Hindi course itne kam price me milna mushkil hai. Sare modules bahut practical hain!"
+    </div>
+    <div class="review-card">
+      <div class="review-head">
+        <span class="review-author">Aman Gupta</span>
+        <span class="stars">★★★★★</span>
+      </div>
+      "React and Node.js concepts crash course me itne acche se clear ho gaye. Must buy!"
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div>🔒 Instant Access</div>
+    <div>⚡ UPI Payment</div>
+    <div>✅ Lifetime Validity</div>
+  </div>
+</div>
+
+<!-- Mobile Sticky Bar -->
+<div class="sticky-bar">
+  <div>
+    <div style="font-size:11px; color:var(--text-dim); font-weight:600;">Total Price</div>
+    <div class="sticky-price" id="stickyPrice">₹1</div>
+  </div>
+  <button class="sticky-btn" id="stickyBuyBtn">Buy Course</button>
+</div>
+
+<!-- ================= PAYMENT MODAL ================= -->
+<div class="overlay" id="payModal">
+  <div class="modal">
+    <button class="close-x" data-close="payModal">✕</button>
+    <div class="modal-title">Payment Choose Karein</div>
+    <div class="modal-sub">Amount: <b id="payModalAmount">₹1</b></div>
+
+    <div class="qr-box">
+      <div style="font-size:12px; font-weight:700; color:var(--text-dim); margin-bottom:8px;">UPI App se QR Code Scan karein</div>
+      <img id="upiQrImg" src="" alt="UPI QR">
+    </div>
+
+    <div class="pay-grid">
+      <div class="pay-app" onclick="triggerUPI('gpay')">
+        <div class="icon gpay">G</div> Google Pay
+      </div>
+      <div class="pay-app" onclick="triggerUPI('phonepe')">
+        <div class="icon phonepe">Pe</div> PhonePe
+      </div>
+      <div class="pay-app" onclick="triggerUPI('paytm')">
+        <div class="icon paytm">P</div> Paytm
+      </div>
+      <div class="pay-app" onclick="triggerUPI('other')">
+        <div class="icon upi">UPI</div> Any App
+      </div>
+    </div>
+
+    <div class="upi-id-box">
+      <div>
+        <div style="font-size:11px; color:var(--text-dim);">Manual Transfer UPI ID</div>
+        <div style="font-weight:700; font-size:13px;" class="mono" id="displayUpiId">yourupi@upi</div>
+      </div>
+      <button class="copy-btn" id="copyUpiBtn">Copy ID
